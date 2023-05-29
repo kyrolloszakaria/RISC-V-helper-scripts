@@ -27,6 +27,7 @@ file = open('input.txt', 'r')
 def convert_to_word_size(value):
     global word_size
     if value == -1:
+        unit = file.readline().split(':')[1].strip()
         return -1
     #unit = input("Enter the unit (bit, byte, kb, mb, gb): ")
     unit = file.readline().split(':')[1].strip()
