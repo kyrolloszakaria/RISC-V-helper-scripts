@@ -7,7 +7,6 @@ Please enter the number of lines in the cache: -1
 Please enter the block size: -1
 Please enter the set size: 8
 Please enter the set number: -1
-Enter what you know from the following. If not known, enter -1:
 Please enter the number of PA_bits: -1
 Please enter the number of offset_bits: -1
 Please enter the number of index_bits: -1

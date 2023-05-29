@@ -22,12 +22,14 @@ PA_bits = -1
 m_values = []
 
 hit_latency = -1
-
+file = None
+file = open('input.txt', 'r')
 def convert_to_word_size(value):
     global word_size
     if value == -1:
         return -1
-    unit = input("Enter the unit (bit, byte, kb, mb, gb): ")
+    #unit = input("Enter the unit (bit, byte, kb, mb, gb): ")
+    unit = file.readline().split(':')[1].strip()
     if unit == "bit":
         value = value / 8
     elif unit == "byte":
@@ -44,8 +46,8 @@ def convert_to_word_size(value):
 
 def general_input():
     global bits, bytes, mode, word_size
-    word_size = int(input(' enter word size in bytes: '))
- 
+    #word_size = int(input(' enter word size in bytes: '))
+    word_size  = int(file.readline().split(':')[1].strip())
 
 def generate_possible_m_values():
     global m_values
@@ -59,30 +61,30 @@ def generate_possible_m_values():
 def values_input():
     global mem_cap, cache_cap, mem_blocks, cache_lines, block_size, set_number, set_size
     print('Enter what you know from the following. If not known, enter -1:')
-    mem_cap = int(input('Please enter the memory capacity: '))
+    mem_cap = int(file.readline().split(':')[1].strip())
     mem_cap = convert_to_word_size(mem_cap)
-    cache_cap = int(input('Please enter the cache capacity: '))
+    cache_cap = int(file.readline().split(':')[1].strip())
     cache_cap = convert_to_word_size(cache_cap)
-    mem_blocks = int(input('Please enter the number of blocks in the memory: '))
-    cache_lines = int(input('Please enter the number of lines in the cache: '))
-    block_size = int(input('Please enter the block size: '))
+    mem_blocks = int(file.readline().split(':')[1].strip())
+    cache_lines = int(file.readline().split(':')[1].strip())
+    block_size = int(file.readline().split(':')[1].strip())
     block_size = convert_to_word_size(block_size)
-    set_size = int(input('Please enter the set size: '))
-    set_number = int(input('Please enter the set number: '))
+    set_size = int(file.readline().split(':')[1].strip())
+    set_number = int(file.readline().split(':')[1].strip())
 
 def PA_input():
     global PA_bits, offset_bits, index_bits, tag_bits, mem_cap, cache_lines, block_size, mem_blocks, set_number
     print('Enter what you know from the following. If not known, enter -1:')
-    PA_bits = int(input('Please enter the number of PA_bits: '))
+    PA_bits = int(file.readline().split(':')[1].strip())
     if PA_bits != -1:
         mem_cap = 2 ** PA_bits
-    offset_bits = int(input('Please enter the number of offset_bits: '))
+    offset_bits = int(file.readline().split(':')[1].strip())
     if offset_bits != -1:
         block_size = 2 ** offset_bits
-    index_bits = int(input('Please enter the number of index_bits: '))
+    index_bits = int(file.readline().split(':')[1].strip())
     if index_bits != -1:
         set_number = 2 ** index_bits
-    tag_bits = int(input('Please enter the number of tag_bits: '))
+    tag_bits = int(file.readline().split(':')[1].strip())
     if tag_bits != -1 and index_bits != -1:
         mem_blocks = 2 ** (tag_bits + index_bits)
 
