@@ -1,0 +1,14 @@
+Enter word size in bytes: 1
+Please enter the memory capacity: -1
+Please enter the cache capacity: 256
+Enter the unit (bit, byte, kb, mb, gb): kb
+Please enter the number of blocks in the memory: -1
+Please enter the number of lines in the cache: -1
+Please enter the block size: -1
+Please enter the set size: 8
+Please enter the set number: -1
+Enter what you know from the following. If not known, enter -1:
+Please enter the number of PA_bits: -1
+Please enter the number of offset_bits: -1
+Please enter the number of index_bits: -1
+Please enter the number of tag_bits: 8
